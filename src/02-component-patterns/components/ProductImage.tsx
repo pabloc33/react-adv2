@@ -3,7 +3,13 @@ import { ProductContext } from "./ProductCard";
 import noImage from "../assets/no-image.jpg";
 import styles from "../styles/styles.module.css";
 
-export const ProductImage = ({ img = "" }) => {
+export interface Props {
+  className?: string;
+  img?: string;
+  style?: React.CSSProperties;
+}
+
+export const ProductImage = ({ img = "", className, style }: Props) => {
   const { product } = useContext(ProductContext);
   let imgToShow: string;
 
@@ -17,6 +23,11 @@ export const ProductImage = ({ img = "" }) => {
 
   return (
     // eslint-disable-next-line jsx-a11y/img-redundant-alt
-    <img className={styles.productImg} src={imgToShow} alt="Product" />
+    <img
+      className={`${styles.productImg} ${className}`}
+      style={style}
+      src={imgToShow}
+      alt="Product"
+    />
   );
 };
