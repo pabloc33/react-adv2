@@ -59,10 +59,6 @@ export const ShoppingPages = () => {
           </ProductCard>
         ))}
       </div>
-
-      <div>
-        <code>{JSON.stringify(shoppingCart, null, 5)}</code>
-      </div>
     </div>
   );
 };
